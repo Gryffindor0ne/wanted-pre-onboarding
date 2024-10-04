@@ -1,7 +1,11 @@
+import InfiniteScroll from '~/components/InfiniteScroll';
 import './App.css';
 
-function App() {
-    return <>Hello World!</>;
-}
-
+const App = () => {
+    return (
+        <>
+            <InfiniteScroll />
+        </>
+    );
+};
 export default App;
