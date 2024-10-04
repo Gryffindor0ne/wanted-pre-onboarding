@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Product from '~/components/Product';
 import { AppBar, Container, Toolbar } from '@mui/material';
 import { getMockData, MockData } from '~/utils/data';
+import LoadingSpinner from '~/common/LoadingSpinner';
 
 const InfiniteScroll = () => {
     const [items, setItems] = useState<MockData[]>([]);
@@ -39,7 +40,7 @@ const InfiniteScroll = () => {
     const totalPrice = items.reduce((acc, cur) => acc + cur.price, 0);
 
     return (
-        <Container sx={{ marginTop: 14 }}>
+        <Container sx={{ marginTop: 12 }}>
             <AppBar position="fixed" sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#D3EE98' }}>
                 <Toolbar>
                     <Typography
@@ -62,7 +63,7 @@ const InfiniteScroll = () => {
                     </Grid>
                 ))}
 
-                {hasMore && 'Loading...'}
+                {hasMore && <LoadingSpinner />}
 
                 <div ref={lastElementRef} style={{ height: '20px', background: 'transparent' }} />
             </Grid>
